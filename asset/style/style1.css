@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: linear-gradient(to right, #227c70, #88a47c);
+}
+
+section {
+  width: 200px;
+  height: 600px;
+  margin: 100px auto;
+  /* border: 1px solid yellowgreen; */
+  transform: rotateX(5deg) rotateY(45deg);
+  transform-style: preserve-3d;
+}
+section > div {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  position: relative;
+  transform-style: preserve-3d;
+  background-color: #333;
+  color: #227c70;
+  /* border: 0.5px solid #e6e2c3; */
+}
+
+section > div > div {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  background-color: #e6e2c3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  animation: border 5s linear infinite forwards;
+}
+
+@keyframes border {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  25% {
+    left: calc(100% - 5px);
+    top: 0;
+  }
+  50% {
+    left: calc(100% - 5px);
+    top: calc(100% - 5px);
+  }
+  75% {
+    left: 0;
+    /* top: 100%; */
+    top: calc(100% - 5px);
+  }
+
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+section > div:hover {
+  transform: translateZ(50px);
+}
+
+section > div::before,
+section > div::after {
+  content: " ";
+  display: flex;
+  position: absolute;
+}
+
+section > div::before {
+  width: 50px;
+  height: 100%;
+  background-color: #333;
+  top: 0;
+  left: -50px;
+  transform-origin: right;
+  transform: rotateY(-90deg);
+}
+section > div::after {
+  width: 100%;
+  height: 50px;
+  background-color: #333;
+  bottom: -50px;
+  left: 0;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+}
